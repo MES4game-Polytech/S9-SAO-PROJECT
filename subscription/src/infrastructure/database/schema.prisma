@@ -1,0 +1,41 @@
+// Prisma 7 : l'URL de connexion est dans prisma.config.ts, pas ici.
+generator client {
+  provider = "prisma-client"
+  output   = "../../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SubscriptionPlan {
+  PREMIUM_MONTHLY
+  PREMIUM_YEARLY
+}
+
+enum SubscriptionStatus {
+  PENDING
+  ACTIVE
+  FAILED
+  CANCELLED
+}
+
+model Subscription {
+  id            String             @id @default(uuid()) @db.Uuid
+  userId        String             @map("user_id") @db.Uuid
+  plan          SubscriptionPlan
+  status        SubscriptionStatus @default(PENDING)
+  priceCents    Int                @map("price_cents")
+  currency      String             @default("EUR") @db.Char(3)
+  paymentId     String?            @map("payment_id")
+  failureReason String?            @map("failure_reason")
+  startsAt      DateTime?          @map("starts_at") @db.Timestamptz(6)
+  endsAt        DateTime?          @map("ends_at") @db.Timestamptz(6)
+  cancelledAt   DateTime?          @map("cancelled_at") @db.Timestamptz(6)
+  createdAt     DateTime           @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime           @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([userId, status])
+  @@map("subscriptions")
+}
