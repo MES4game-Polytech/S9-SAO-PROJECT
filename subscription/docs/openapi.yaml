@@ -1,0 +1,15 @@
+openapi: 3.1.0
+info:
+  title: PolyBird — Subscription API
+  version: 1.0.0
+  description: |
+    Service central de gestion des abonnements premium de PolyBird.
+
+    Les chemins seront ajoutés au fur et à mesure de l'implémentation.
+    Le modèle métier et les routes prévues sont décrits dans `domain-model.md`.
+servers:
+  - url: /api/v1
+tags:
+  - name: subscriptions
+    description: Abonnements premium
+paths: {}
