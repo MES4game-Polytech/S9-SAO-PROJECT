@@ -1,0 +1,1 @@
+/* A remplir pour avoir des données initiales dans la db lors du lancement du service */
