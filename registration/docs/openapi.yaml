@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: PolyBird — Registration API
+  version: 1.0.0
+  description: |
+    Les chemins seront ajoutés au fur et à mesure de l'implémentation.
+    Le modèle métier et les routes prévues sont décrits dans `domain-model.md`.
+servers:
+  - url: /api/v1
+tags:
+  - name: registrations
+    description: Inscriptions aux évènements
+paths: {}
