@@ -4,13 +4,17 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,
-    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": false,
     "rootDir": ".",
     "outDir": "dist",
     "sourceMap": true,
-    "types": ["node"]
+    "types": ["node"],
   },
-  "include": ["src", "tests"]
+  "include": ["src", "tests", "prisma.config.ts", "vitest.config.ts"]
 }
